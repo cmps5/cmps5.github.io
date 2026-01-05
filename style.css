@@ -9,11 +9,16 @@
  }
 
  header {
+     position: sticky;
+     top: 0;
+     z-index: 1000;
+
      display: flex;
      justify-content: space-between;
      align-items: center;
      padding: 1rem 2rem;
      border-bottom: 1px solid #ddd;
+     background: #fff;
  }
 
  header h1 {
@@ -164,6 +169,7 @@
      }
 
      body.dark-mode header {
+         background: #1d1f21;
          border-bottom: 1px solid #333;
      }
 
