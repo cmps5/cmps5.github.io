@@ -19,6 +19,12 @@
      padding: 1rem 2rem;
      border-bottom: 1px solid #ddd;
      background: #fff;
+
+     transition: box-shadow 0.3s ease;
+ }
+
+ header.scrolled {
+     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
  }
 
  header h1 {
@@ -171,6 +177,10 @@
      body.dark-mode header {
          background: #1d1f21;
          border-bottom: 1px solid #333;
+     }
+
+     body.dark-mode header.scrolled {
+         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
      }
 
      body.dark-mode footer {
