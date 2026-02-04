@@ -58,7 +58,8 @@
 
  .intro {
      display: flex;
-     align-items: center;
+     align-items: flex-start;
+     /* align-items: center; */
      gap: 2rem;
  }
 
