@@ -4,114 +4,362 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CarlosSantos</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Carlos Santos</title>
+    <meta name="description"
+        content="Carlos Santos - Quality Assurance Analyst at Natixis in Portugal and MSc student in Network and Information Systems Engineering at the University of Porto.">
     <link rel="icon" href="img/cs.ico">
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // Apply saved theme before paint (avoids a flash of the wrong theme)
+        try {
+            var t = localStorage.getItem('theme');
+            if (!t && window.matchMedia('(prefers-color-scheme: dark)').matches) t = 'dark';
+            if (t) document.documentElement.setAttribute('data-theme', t);
+        } catch (e) { }
+    </script>
 </head>
 
 <body>
 
-    <header>
-        <h1>Carlos Santos</h1>
+    <header id="header">
         <nav>
-            <a href="">About</a>
-            <a href="#experience">Experience</a>
-            <a href="#education">Education</a>
-            <button id="toggle-dark"
-                style="background:none; border:none; font: inherit; cursor:pointer; display:none; padding:0; margin-left:1rem; line-height:1;">🌓</button>
+            <a href="#home" class="logo">Carlos Santos</a>
+            <ul id="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#leadership">Leadership</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="icon-btn" aria-label="Toggle dark mode">🌓</button>
+                <button id="menu-toggle" class="icon-btn menu-btn" aria-label="Open menu"
+                    aria-expanded="false">☰</button>
+            </div>
         </nav>
     </header>
 
-    <div class="container">
-        <section class="intro">
-            <img src="img/cs.png" alt="Carlos Santos">
-            <div>
-                <p>Hey, I'm <strong>Carlos</strong>!</p>
-                <p>I'm a Quality Assurance Analyst working at Natixis in Portugal and a Master's student in
-                    Network and Information Systems Engineering at the University of Porto.</p>
-                <p>I have 4+ years of experience in software testing and development within retail and financial
-                    systems, including Oracle Retail (RMS, SIOCS, OSIO, SIH).</p>
-                <p>Day to day, I work on manual and batch testing for web and mobile applications, writing test plans
-                    and test cases, and collaborating with French-speaking teams in Agile environments.</p>
-                <p>I'm passionate about Numbers, Sport, Associativism, Volunteering and Graphic Design. I love solving
-                    problems and building reliable systems with people I can learn from.</p>
-                <p>Also, I've been involved in several sports projects, as an athlete, coach, manager, referee and
-                    volunteer, and I have taken leadership roles such as Vice President at FADU Portugal.</p>
+    <main>
+
+        <!-- Home -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Carlos Santos</h1>
+                    <p class="subtitle">Quality Assurance Analyst</p>
+                    <p class="role">@ Natixis in Portugal · MSc student at the University of Porto</p>
+                    <div class="buttons">
+                        <a href="#experience" class="btn btn-primary">View Experience</a>
+                        <a href="#contact" class="btn btn-outline">Contact Me</a>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/cmps5" target="_blank" rel="noopener" aria-label="GitHub">
+                            <svg viewBox="0 0 24 24" role="img">
+                                <path
+                                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.087-.744.084-.729.084-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.418-1.305.762-1.605-2.665-.3-5.466-1.334-5.466-5.931 0-1.31.465-2.381 1.235-3.221-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.911 1.23 3.221 0 4.609-2.805 5.625-5.475 5.921.429.369.81 1.096.81 2.211 0 1.596-.015 2.876-.015 3.266 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/cmps5" target="_blank" rel="noopener"
+                            aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" role="img">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.039-1.852-3.039-1.853 0-2.136 1.445-2.136 2.939v5.669H9.351V9h3.414v1.561h.049c.477-.9 1.637-1.85 3.369-1.85 3.601 0 4.267 2.369 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 110-4.124 2.062 2.062 0 010 4.124zM6.813 20.452H3.861V9h2.952v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="img/cs.png" alt="Carlos Santos" class="profile-photo">
+                </div>
             </div>
         </section>
 
-        <section id="experience">
-            <h2>Experience</h2>
-            <ul>
-                <li>
-                    <strong>Quality Assurance Analyst</strong> - Natixis in Portugal (Mar 2025 - Present)
-                </li>
-                <li>
-                    <strong>Oracle Retail Consultant</strong> - Oracle (Mar 2021 - Aug 2023)
-                </li>
-            </ul>
+        <!-- About -->
+        <section id="about" class="section reveal">
+            <h2>About Me</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>I'm a <strong>Quality Assurance Analyst</strong> at Natixis in Portugal and a Master's student in
+                        <strong>Network and Information Systems Engineering</strong> at the University of Porto.
+                    </p>
+                    <p>I have <strong>4+ years of experience</strong> in software testing and development within retail
+                        and financial systems, including Oracle Retail (RMS, SIOCS, OSIO, SIH).</p>
+                    <p>Day to day, I run manual and batch testing for web and mobile applications, automate tests, write
+                        test plans and test cases, and work with French-speaking teams
+                        in Agile environments.</p>
+                    <p>I'm passionate about <strong>numbers, computers, sport, associativism, volunteering and graphic
+                            design</strong> (not necessarily in that order). I love solving problems and building
+                        reliable systems with people I can learn from.</p>
+                </div>
+                <ul class="facts">
+                    <li><span>4+</span> years in software testing &amp; development</li>
+                    <li><span>2</span> years as Vice President of FADU Portugal</li>
+                    <li><span>4</span> languages: PT · EN · FR · ES</li>
+                    <li><span>🏅</span> Math Olympiad medalist</li>
+                </ul>
+            </div>
         </section>
 
-        <section id="education">
-            <h2>Education</h2>
-            <ul>
-                <li>
-                    <strong>Universidade do Porto</strong>
-                    <br>BSc & MSc in Network and Information Systems Engineering
-                </li>
-                <li>
-                    <strong>Escola Secundária Dr. José Augusto Pinto</strong>
-                    <br>High School Diploma in Sciences and Technologies
-                </li>
-            </ul>
+        <!-- Experience -->
+        <section id="experience" class="section alt reveal">
+            <h2>Professional Experience</h2>
+            <div class="timeline">
+
+                <details class="t-item" open>
+                    <summary>
+                        <span class="t-date">Mar 2025 - Present</span>
+                        <span class="t-title">Quality Assurance Analyst</span>
+                        <span class="t-company">Natixis in Portugal · Porto</span>
+                    </summary>
+                    <div class="t-details">
+                        <p><strong>Project:</strong> Non-life insurance - contracts</p>
+                        <ul>
+                            <li>Manual functional testing of web and mobile applications and batch processes, based on
+                                business requirements and user stories.</li>
+                            <li>End-to-end testing of batch processes, validating data integrity and system performance.
+                            </li>
+                            <li>Test automation with Playwright to complement manual testing.</li>
+                            <li>Design and maintenance of test plans, test cases and execution documentation.</li>
+                            <li>Work directly with French-speaking teams: refinement ceremonies and story point
+                                estimation.</li>
+                            <li>Defect reporting, tracking and management in Jira.</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="t-item">
+                    <summary>
+                        <span class="t-date">Nov 2022 - Nov 2024</span>
+                        <span class="t-title">Vice President (International Area)</span>
+                        <span class="t-company">FADU Portugal · Federação Académica do Desporto Universitário</span>
+                    </summary>
+                    <div class="t-details">
+                        <ul>
+                            <li>Worked directly with <strong>EUSA</strong> (European University Sports Association) and
+                                <strong>FISU</strong> (International University Sports Federation).</li>
+                            <li>Team Manager of the Volleyball National University Team - 31st Summer FISU World
+                                University Games, Chengdu 2023.</li>
+                            <li>Team Manager of the Beach Volleyball National University Team - FISU World University
+                                Championships Beach Sports, Rio de Janeiro 2024.</li>
+                            <li>Organising committee member: EUSA EC Meeting (Aveiro 2024) and FISU World University
+                                Championships Canoe Sports (Montemor 2024).</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="t-item">
+                    <summary>
+                        <span class="t-date">Aug 2021 - Aug 2023</span>
+                        <span class="t-title">Quality Assurance Analyst &amp; Functional Support</span>
+                        <span class="t-company">Oracle · Oracle Retail · Porto</span>
+                    </summary>
+                    <div class="t-details">
+                        <ul>
+                            <li>Created, documented and executed functional and technical test cases for Oracle Retail
+                                applications on web and mobile.</li>
+                            <li>Systems integration, regression and performance testing to assess responsiveness,
+                                stability and scalability.</li>
+                            <li>Functional support to end users: troubleshooting, issue resolution and training.</li>
+                            <li>Defect tracking in Jira and prioritisation with cross-functional teams.</li>
+                        </ul>
+                        <p class="tags">
+                            <span>Retail Merchandising System</span><span>Supplier Portal</span><span>Store Inventory
+                                Operations Cloud</span><span>Offline SIOCS</span><span>Smart Item Hub</span>
+                        </p>
+                    </div>
+                </details>
+
+                <details class="t-item">
+                    <summary>
+                        <span class="t-date">Mar 2021 - Aug 2021</span>
+                        <span class="t-title">Software Developer &amp; Technical Support</span>
+                        <span class="t-company">Oracle · Oracle Retail · Porto</span>
+                    </summary>
+                    <div class="t-details">
+                        <ul>
+                            <li>Developed new features and integrations (PL/SQL, Java) for Oracle Retail applications.
+                            </li>
+                            <li>Implemented, configured, scheduled and ran Oracle Retail background processes with
+                                Automic.</li>
+                            <li>Technical support for diagnosing and resolving issues; code reviews and performance
+                                optimisation.</li>
+                            <li>Documented integrations, configurations and technical specifications.</li>
+                        </ul>
+                    </div>
+                </details>
+
+            </div>
         </section>
-    </div>
 
+        <!-- Leadership -->
+        <section id="leadership" class="section reveal">
+            <h2>Leadership &amp; Volunteering</h2>
+            <p class="lead">Sport and associativism have shaped how I work with people: as an athlete, coach, manager,
+                referee and volunteer.</p>
+            <div class="card-grid">
+                <article class="card">
+                    <h3>FADU Portugal</h3>
+                    <p class="meta">Vice President · 2022 - 2024<br>Delegate · 2018 - 2021</p>
+                    <p>International relations with EUSA and FISU, and team management at World University Games and
+                        Championships.</p>
+                </article>
+                <article class="card">
+                    <h3>AEFCUP - Students' Association, FCUP</h3>
+                    <p class="meta">Sports Coordinator · 2018 - 2020</p>
+                    <p>Coordinated a multidisciplinary team and managed handball, basketball, football, futsal and
+                        volleyball teams, plus tournaments and sports communication.</p>
+                </article>
+                <article class="card">
+                    <h3>Student Representation at FCUP</h3>
+                    <p class="meta">2017 - 2021</p>
+                    <p>Council of Representatives, MIERSI Monitoring Committee (DCC-FCUP) and Vice-Chairman of the
+                        General Assembly Board at NUCC.</p>
+                </article>
+                <article class="card">
+                    <h3>Projeto Vitó - Sea Turtles</h3>
+                    <p class="meta">Monitor · 2013 - 2016 · Cabo Verde</p>
+                    <p>Biometric data and genetic sample collection, tagging, censuses and environmental education
+                        activities.</p>
+                </article>
+                <article class="card">
+                    <h3>Volleyball in São Vicente</h3>
+                    <p class="meta">Collaborator · 2015 - 2016 · Cabo Verde</p>
+                    <p>Scorer in the refereeing team, digital marketing, and organisation and volunteer management of
+                        the Women's National Championship.</p>
+                </article>
+                <article class="card">
+                    <h3>Secondary School &amp; Red Cross</h3>
+                    <p class="meta">2012 - 2016 · Cabo Verde</p>
+                    <p>President of the Students' Association, Secretary General of the Finalists' Committee, and
+                        first-aid volunteer at the Cabo Verde Red Cross.</p>
+                </article>
+            </div>
+        </section>
 
+        <!-- Education -->
+        <section id="education" class="section alt reveal">
+            <h2>Education &amp; Recognition</h2>
+            <div class="card-grid two">
+                <article class="card">
+                    <h3>Universidade do Porto</h3>
+                    <p class="meta">BSc &amp; MSc · Network and Information Systems Engineering</p>
+                    <p>Master's currently ongoing.</p>
+                </article>
+                <article class="card">
+                    <h3>Escola Secundária Dr. José Augusto Pinto</h3>
+                    <p class="meta">High School Diploma · Sciences and Technologies</p>
+                    <p>São Vicente, Cabo Verde.</p>
+                </article>
+                <article class="card">
+                    <h3>Math Olympiads 🏅</h3>
+                    <ul class="plain">
+                        <li>Bronze - CPLP Math Olympiad, 2016</li>
+                        <li>Gold - Math Olympiad of Cabo Verde, 2016 &amp; 2014</li>
+                        <li>Silver - Math Olympiad of São Vicente, 2014</li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <h3>Certifications</h3>
+                    <ul class="plain">
+                        <li>Basic Life Support</li>
+                        <li>Public Speaking</li>
+                        <li>Leaders Academy</li>
+                        <li>Monitoring and Protection of Sea Turtles</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills" class="section reveal">
+            <h2>My Skills</h2>
+            <div class="skills-wrap">
+                <div class="skills-category">
+                    <h3>Testing &amp; QA</h3>
+                    <ul>
+                        <li>Manual Testing</li>
+                        <li>Functional Testing</li>
+                        <li>Integration Testing</li>
+                        <li>Regression Testing</li>
+                        <li>Performance Testing</li>
+                        <li>Batch Testing</li>
+                        <li>Test Planning</li>
+                        <li>Test Case Design</li>
+                        <li>Defect Management</li>
+                        <li>Test Automation</li>
+                        <li>Playwright</li>
+                    </ul>
+                </div>
+                <div class="skills-category">
+                    <h3>Tools &amp; Methodologies</h3>
+                    <ul>
+                        <li>Agile / Scrum</li>
+                        <li>Jira</li>
+                        <li>Git</li>
+                        <li>Oracle Retail Suite</li>
+                        <li>Automic</li>
+                    </ul>
+                </div>
+                <div class="skills-category">
+                    <h3>Programming</h3>
+                    <ul>
+                        <li>Java</li>
+                        <li>PL/SQL</li>
+                        <li>SQL</li>
+                        <li>Python</li>
+                        <li>Shell Script</li>
+                        <li>C / C++</li>
+                        <li>C#</li>
+                        <li>Rust</li>
+                        <li>Haskell</li>
+                        <li>PHP</li>
+                        <li>JavaScript</li>
+                    </ul>
+                </div>
+                <div class="skills-category">
+                    <h3>Soft Skills</h3>
+                    <ul>
+                        <li>Team Management</li>
+                        <li>Cross-functional Collaboration</li>
+                        <li>Public Speaking</li>
+                        <li>Written &amp; Oral Communication</li>
+                        <li>Leadership</li>
+                    </ul>
+                </div>
+                <div class="skills-category">
+                    <h3>Languages</h3>
+                    <ul>
+                        <li>Portuguese · Native</li>
+                        <li>English · Full professional</li>
+                        <li>French · Professional working</li>
+                        <li>Spanish · Limited working</li>
+                        <li>German · Elementary</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="section alt contact reveal">
+            <h2>Contact</h2>
+            <p class="lead">Have a question, an opportunity or just want to say hi? Get in touch through LinkedIn or
+                GitHub!</p>
+            <div class="buttons center">
+                <a href="https://www.linkedin.com/in/cmps5" target="_blank" rel="noopener"
+                    class="btn btn-primary">LinkedIn</a>
+                <a href="https://github.com/cmps5" target="_blank" rel="noopener" class="btn btn-outline">GitHub</a>
+            </div>
+        </section>
+
+    </main>
 
     <footer>
         <p>Carlos Santos © 2026 | All rights reserved.</p>
-        <div class="social-icons">
-            <p>
-                <a href="https://github.com/cmps5" target="_blank" aria-label="GitHub">
-                    <svg role="img" viewBox="0 0 24 24">
-                        <path d="M12 .297c-6.63 0-12 5.373-12 
-          12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577
-          0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61
-          -.546-1.387-1.333-1.757-1.333-1.757-1.087-.744.084-.729.084-.729
-          1.205.084 1.84 1.236 1.84 1.236 1.07 1.835 2.809 
-          1.305 3.495.998.108-.776.418-1.305.762-1.605-2.665-.3-5.466-1.334-5.466-5.931
-          0-1.31.465-2.381 1.235-3.221-.135-.303-.54-1.523.105-3.176 
-          0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 
-          3-.405 1.02.006 2.04.138 3 
-          .405 2.28-1.552 3.285-1.23 3.285-1.23 
-          .645 1.653.24 2.873.12 3.176.765.84 
-          1.23 1.911 1.23 3.221 0 4.609-2.805 
-          5.625-5.475 5.921.429.369.81 1.096.81 
-          2.211 0 1.596-.015 2.876-.015 
-          3.266 0 .315.21.69.825.57C20.565 
-          22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
-                    </svg>
-                </a>
-                <a href="https://www.linkedin.com/in/cmps5" target="_blank" aria-label="LinkedIn">
-                    <svg role="img" viewBox="0 0 24 24">
-                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.039-1.852-3.039-1.853 
-          0-2.136 1.445-2.136 2.939v5.669H9.351V9h3.414v1.561h.049c.477-.9 
-          1.637-1.85 3.369-1.85 3.601 0 4.267 2.369 
-          4.267 5.455v6.286zM5.337 7.433a2.062 2.062 
-          0 110-4.124 2.062 2.062 0 010 4.124zM6.813 
-          20.452H3.861V9h2.952v11.452zM22.225 
-          0H1.771C.792 0 0 .774 0 1.729v20.542C0 
-          23.227.792 24 1.771 24h20.451C23.2 24 
-          24 23.227 24 22.271V1.729C24 .774 23.2 
-          0 22.225 0z" />
-                    </svg>
-                </a>
-            </p>
-        </div>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 
 </html>
